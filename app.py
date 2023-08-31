@@ -1,6 +1,7 @@
 import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
+import os
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
 from langchain.vectorstores import FAISS
@@ -92,7 +93,8 @@ def handle_userinput(user_question):
     
     
 def main():
-    load_dotenv()
+    # load_dotenv()
+    os.environ["OPENAI_API_KEY"] = "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"
     st.set_page_config(page_title="Resume Parser",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
