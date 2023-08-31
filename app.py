@@ -94,7 +94,7 @@ def handle_userinput(user_question):
     
 def main():
     # load_dotenv()
-    os.environ["OPENAI_API_KEY"] = "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"
+    os.environ["OPENAI_API_KEY"] = "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"
     st.set_page_config(page_title="Resume Parser",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
