@@ -37,10 +37,10 @@ def get_text_chunks(text):
 
 
 def get_vectorstore(text_chunks):
-    # embeddings = OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings()
     # embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
-    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-large")
-    st.write('embeddings',embeddings)
+    # embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-large")
+    # st.write('embeddings',embeddings)
     # st.write('client-->',embeddings.client[0].max_seq_length)
     # embeddings.client[0].max_seq_length = 5000
     
@@ -49,10 +49,10 @@ def get_vectorstore(text_chunks):
 
 
 def get_conversation_chain(vectorstore):
-    # llm = ChatOpenAI()
-    llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":1024})
+    llm = ChatOpenAI()
+    # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature":0.5, "max_length":1024})
     # llm = HuggingFaceHub(repo_id="google/flan-t5-xxl")
-    st.write('llm-->',llm)
+    # st.write('llm-->',llm)
 
     memory = ConversationBufferMemory(
         memory_key='chat_history', return_messages=True)
