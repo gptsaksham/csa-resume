@@ -94,11 +94,9 @@ def handle_userinput(user_question):
     
 def main():
     # load_dotenv()
-    st.write(os.environ.get('Environment'))
 
     os.environ["OPENAI_API_KEY"] = "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"
-    st.set_page_config(page_title="Resume Parser",
-                       page_icon=":books:")
+    st.set_page_config(page_title="Resume Parser",page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
 
     if "conversation" not in st.session_state:
@@ -111,6 +109,8 @@ def main():
 
     st.header("Find answers from your Resume :books:")
     user_question = st.text_input("Ask a question about your resume:")
+    st.write(os.environ.get('Environment'))
+
     # user_question=''
     # st.write('userinput-->',user_question)
     
