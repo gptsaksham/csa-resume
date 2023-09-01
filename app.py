@@ -94,7 +94,7 @@ def handle_userinput(user_question):
     
 def main():
     # load_dotenv()
-    st.write(System.Environment.GetEnvironmentVariable("Environment",EnvironmentVariableTarget.Process))
+    st.write(os.environ.get('Environment'))
 
     os.environ["OPENAI_API_KEY"] = "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"
     st.set_page_config(page_title="Resume Parser",
