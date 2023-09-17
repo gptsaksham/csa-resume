@@ -66,30 +66,30 @@ def get_conversation_chain(vectorstore):
 
 
 def handle_userinput(user_question):
-    # response = st.session_state.conversation({'question': user_question})
+    response = st.session_state.conversation({'question': user_question})
     # print('in the method')
     # if(user_question!=None):
     #     response = st.session_state.conversation({'question': user_question})
     # else:
 
-    response = st.session_state.conversation({'question': 'Tell me the list of skillset'})
+    # response = st.session_state.conversation({'question': 'Tell me the list of skillset'})
 
     st.session_state.chat_history = response['chat_history']
 
  
     # st.write(response)
 
-    # for i, message in enumerate(st.session_state.chat_history):
-    #     # print('hello')
-    #     # st.write('i-->',i)
-    #     # st.write('message-->',message)
-    #     if i % 2 == 0:
-    #         st.write(user_template.replace(
-    #             "{{MSG}}", message.content), unsafe_allow_html=True)
+    for i, message in enumerate(st.session_state.chat_history):
+        # print('hello')
+        # st.write('i-->',i)
+        # st.write('message-->',message)
+        if i % 2 == 0:
+            st.write(user_template.replace(
+                "{{MSG}}", message.content), unsafe_allow_html=True)
           
-    #     else:
-    #         st.write(bot_template.replace(
-    #             "{{MSG}}", message.content), unsafe_allow_html=True)
+        else:
+            st.write(bot_template.replace(
+                "{{MSG}}", message.content), unsafe_allow_html=True)
     
     
 def main():
@@ -112,8 +112,8 @@ def main():
     user_question = st.text_input("Ask a question about your resume:")
     # st.write(os.environ.get('Environment'))
 
-    # user_question=''
-    # st.write('userinput-->',user_question)
+    user_question=''
+    st.write('userinput-->',user_question)
     
     # user_question ='What is your name'
     if user_question:
@@ -142,27 +142,33 @@ def main():
                     vectorstore)
                 
                 
-            handle_userinput(user_question)
+            # handle_userinput(user_question)
+
+
+
     # st.write('hello user')
     # st.write(myName)
     # st.write(user_template.replace(
     #             "{{MSG}}", myName), unsafe_allow_html=True)
     # st.write('sesssion state-->',st.session_state)
     # st.write('sesssion state-->',st.session_state.chat_history)
-    if(st.session_state.chat_history!=None):
-         for i, message in enumerate(st.session_state.chat_history):
-            # print('hello')
-            # st.write('i-->',i)
-            # st.write('message-->',message)
-            if i % 2 == 0:
-                # st.write('message.content-->',message.content)
-                print('test')
-                # st.write(user_template.replace(
-                #     "{{MSG}}", message.content), unsafe_allow_html=True)
+
+
+    # New comment 
+    # if(st.session_state.chat_history!=None):
+    #      for i, message in enumerate(st.session_state.chat_history):
+    #         # print('hello')
+    #         # st.write('i-->',i)
+    #         # st.write('message-->',message)
+    #         if i % 2 == 0:
+    #             # st.write('message.content-->',message.content)
+    #             print('test')
+    #             st.write(user_template.replace(
+    #                 "{{MSG}}", message.content), unsafe_allow_html=True)
             
-            else:
-                st.write(bot_template.replace(
-                    "{{MSG}}", message.content), unsafe_allow_html=True)
+    #         else:
+    #             st.write(bot_template.replace(
+    #                 "{{MSG}}", message.content), unsafe_allow_html=True)
 
 
 
